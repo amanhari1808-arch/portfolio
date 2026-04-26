@@ -1,0 +1,626 @@
+/*
+ * Aman H – Data Analyst Portfolio
+ * Best / most attractive & professional CSS
+ */
+
+:root {
+  --primary: #1a365d;
+  --primary-light: #2a4c80;
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --accent: #00b8d9;
+  --accent-dark: #0099b7;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: rgba(255,255,255,0.12);
+  --shadow-soft: 0 8px 30px rgba(15,23,42,0.4);
+  --shadow-card: 0 12px 32px rgba(15,23,42,0.5);
+}
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* Responsive base font size */
+@media (max-width: 480px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+/* Soft background layer */
+.bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #111d4a 0%, #0f172a 100%);
+  z-index: -1;
+}
+
+/* Layout container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* General section padding */
+.section {
+  padding: 90px 0;
+}
+
+/* 1. HEADER / NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 70px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Desktop nav links */
+.nav-right {
+  gap: 1.8rem;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding-bottom: 2px;
+  position: relative;
+  opacity: 0.95;
+  transition: all 0.2s ease;
+}
+
+.nav-right a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-right a:hover {
+  opacity: 1;
+}
+
+.nav-right a:hover::after {
+  width: 100%;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-right {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    max-width: 380px;
+    background: var(--primary);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+    box-shadow: var(--shadow-soft);
+    z-index: 999;
+  }
+
+  .nav-right.active {
+    right: 0;
+  }
+
+  .nav-right a {
+    padding: 1rem 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-left {
+    flex: 1;
+  }
+}
+
+/* 2. HERO SECTION */
+.hero {
+  padding: 150px 0 100px;
+  position: relative;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3.2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-left {
+  grid-column: span 7;
+}
+
+.hero-right {
+  grid-column: span 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 1.8rem;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+/* Hero buttons */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem 1.9rem;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: white;
+  border: 1px solid var(--accent-dark);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 184, 217, 0.35);
+}
+
+.hero-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem 1.9rem;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  color: white;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-resume-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 184, 217, 0.2);
+}
+
+/* 3. Photo frame */
+.photo-frame {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 184, 217, 0.25);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 4. SECTION TITLE */
+.section-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1.8rem;
+  text-align: left;
+}
+
+/* 5. CARD BASE STYLE */
+.card,
+.contact-card,
+.project-card,
+.edu-card,
+.cert-card {
+  background: var(--card-bg);
+  border-radius: 13px;
+  padding: 1.7rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.project-card:hover,
+.edu-card:hover,
+.cert-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+/* 6. ABOUT SECTION */
+.card-text {
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* 7. SKILLS SECTION */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.75rem 1.15rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.08);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(0,184,217, 0.15);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 184, 217, 0.15);
+}
+
+/* 8. PROJECTS GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.project-card a {
+  display: block;
+  text-decoration: none;
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+}
+
+.project-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.project-desc {
+  font-size: 1.08rem;
+  margin-bottom: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.project-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.project-tag {
+  font-size: 0.88rem;
+  padding: 0.48rem 0.95rem;
+  border-radius: 21px;
+  background: rgba(0,184,217,0.12);
+  color: #f8fafa;
+  border: 1px solid rgba(0,184,217,0.2);
+}
+
+/* 9. EDUCATION GRID */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.7rem;
+}
+
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.6rem;
+}
+
+.edu-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.edu-meta {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.edu-year {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* 10. CERTIFICATES GRID */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.7rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.6rem;
+}
+
+.cert-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.cert-org {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.cert-btn {
+  display: inline-block;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.98rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cert-btn:hover {
+  background: rgba(0,184,217,0.12);
+  border-color: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 11. CONTACT SECTION */
+.contact-card {
+  padding: 1.7rem;
+}
+
+.contact-text {
+  font-size: 1.12rem;
+  color: var(--text-muted);
+  margin-bottom: 1.3rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.8rem;
+}
+
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.02rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contact-links a:hover {
+  color: #0085a1;
+  transform: translateY(-1px);
+}
+
+/* 12. RESPONSIVE BREAKPOINTS */
+
+/* Medium screens */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .hero-left,
+  .hero-right {
+    grid-column: span 12;
+    text-align: center;
+  }
+
+  .hero-right {
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .hero-btn,
+  .hero-resume-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: 65px 0;
+  }
+
+  .card,
+  .project-card,
+  .edu-card,
+  .cert-card,
+  .contact-card {
+    padding: 1.3rem;
+  }
+
+  .card-text,
+  .project-desc,
+  .edu-title,
+  .edu-meta,
+  .edu-year,
+  .cert-title,
+  .cert-org {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 125px 0 80px;
+  }
+
+  .hero-actions {
+    gap: 0.8rem;
+  }
+
+  .projects-grid,
+  .edu-grid,
+  .certs-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+  .hero-container {
+    gap: 4.2rem;
+  }
+
+  .hero-right {
+    justify-content: flex-start;
+  }
+
+  .projects-grid,
+  .edu-grid,
+  .certs-grid {
+    gap: 2.2rem;
+  }
+}
